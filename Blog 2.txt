@@ -1,0 +1,184 @@
+QUESTION 1) Discuss in words something you learned in class today or this week.
+
+ This week a big takeaway was learning the difference between state and props and how they are related to each other.  The state of one component will 
+ often become the child component.  Props are passed to the child within the render method of the parent.  The parent's state value becomes the child
+ prop's name.  From the child component, the prop is immutable.  It will be passed back up to the parent component if it needs to be changed and the 
+ internal state can be changed.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) Why/when would you use a class-based component vs a functional component? What are the differences? What new alternatives are there?
+
+The class component, a stateful/container component, is a regular ES6 class that extends the component class of the React library. It is called a stateful 
+component because it controls how the state changes and the implementation of the component logic. Aside from that, they have access to all the different 
+phases of a React lifecycle method.
+
+Functional components are simply JavaScript functions. Before hooks, they were mostly referred to as stateless or presentational 
+components because then they only accepted and returned data to be rendered to the DOM. However with hooks, you can implement states with the useState hooks
+to create a stateful component similar to class components.
+
+Also, with lifecycle methods, you can use the useEffect hook with functional components to accomplish the same effect as you would with lifecycle methods
+such as componentDidMount, componentDidUpdate and componentWillUnmount combined with the class component.
+
+The difference between the two is that class component uses ES6 class syntax, and it extends React components with a render method that returns React 
+elements. On the other hand, functional components with hooks are purely JavaScript functions that also return React elements.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What is create-react-app?
+
+Create React App is an environment for learning React. It sets up your development environment so that you can use the latest JavaScript features, provides 
+a nice developer experience and optimizes your app for production.
+
+To run your React application, you need to turn your JSX into plain JavaScript, which browsers understand.
+
+The Create React App generates required files and folders to start the React application and run it on the browser. This allows you to focus on coding your 
+application without having to bother with build configurations.
+
+It has many dependencies that are used to make it run, such as:
+
+1) Babel
+The main purpose of Babel is to make your code readable by older browsers. Since the release of ES 2015, browsers have seen slow but steady progress to 
+implement new JavaScript APIs and features.
+
+Babel transforms your modern JavaScript code into the older version, and then adds polyfills, a piece of code that implements features missing in the 
+browser but needed by your app.
+
+2) ESLint
+ESLint is a JavaScript linter that will scan your code and flag any code errors. The library will warn you from the console if you have any errors. It also
+ plays well with a modern code editor like VSCode.
+
+3) Jest
+Jest is a testing library by Facebook that plays very well with React. The dependencies for Jest allow you to write test scripts for your application 
+without having to install another testing library.
+
+4) PostCSS
+PostCSS is a JavaScript plugin to transform your CSS. PostCSS plugins can lint your CSS, support variables and mixins syntax, transpile future CSS syntax, 
+and many more things depending on its configs.
+
+5) Webpack
+Webpack is a module bundler for JavaScript that puts everything needed by your application together. This library can also run tasks like running Babel, 
+Jest, ESLint, and PostCSS on top of your code.
+
+The react-scripts are scripts to run the build tools required to transform React JSX into plain JavaScript programmatically.
+
+With the start argument, NPM will begin the process to make a development server available for your React application. Here's a list of tasks for this script:
+
+- Set the build environment into development for Node and Babel
+- Ensure environment variables are read for the build process
+- Verify the packages installed in your project are not outdated
+- Check whether the code is in TypeScript or not
+- Import required packages for the process, mostly Webpack-related modules
+- Check for available port and host IP, defaults to 0.0.0.0:3000
+- Run the compiler and listen for any messages from Webpack. Webpack will take care of using Babel, ESLint, and any other tools to prepare your code
+- While Webpack is running, the script will open your browser and start the development server
+- The development server created by WebpackDevServer will also create a listener for changes in your JavaScript file. When you make changes and save your 
+- JavaScript file, the development server will recompile your code and quickly refresh the browser.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What is JSX?
+
+JSX stands for JavaScript XML. It is simply a syntax extension of JavaScript. It allows us to directly write HTML in React (within JavaScript code). It is 
+easy to create a template using JSX in React, but it is not a simple template language instead it comes with the full power of JavaScript. It is faster 
+than normal JavaScript as it performs optimizations while translating to regular JavaScript. Instead of separating the markup and logic in separated files, 
+React uses components for this purpose.
+
+Characteristics of JSX:
+
+- JSX is not mandatory to use there are other ways to achieve the same thing but using JSX makes it easier to develop react application.
+- JSX allows writing expression in { }. The expression can be any JS expression or React variable.
+- To insert a large block of HTML we have to write it in a parenthesis i.e, ().
+- JSX produces react elements.
+- JSX follows XML rule.
+- After compilation, JSX expressions become regular JavaScript function calls.
+- JSX uses camelcase notation for naming HTML attributes. For example, tabindex in HTML is used as tabIndex in JSX.
+
+Advantages of JSX:
+
+- JSX makes it easier to write or add HTML in React.
+- JSX can easily convert HTML tags to react elements.
+- It is faster than regular JavaScript.
+- JSX allows us to put HTML elements in DOM without using appendChild() or createElement() method.
+- As JSX is an expression, we can use it inside of if statements and for loops, assign it to variables, accept it as arguments, or return it from functions.
+- JSX prevents XSS (cross-site-scripting) attacks popularly known as injection attacks.
+- It is type-safe, and most of the errors can be found at compilation time.
+ 
+Disadvantages of JSX:
+
+- JSX throws an error if the HTML is not correct.
+- In JSX HTML code must be wrapped in one top-level element otherwise it will give an error.
+- If HTML elements are not properly closed JSX will give an error.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) How does React work? From entry point to last child component? 
+
+Beginning with the entry point of index.js, it has a line: ReactDOM.render(<App/>, document.getElementById('root'));
+
+This line calls ReactDOM’s render() method, which renders a React element into the DOM in the supplied container and returns a reference to the component. 
+The React element here is the <App> component, and the supplied container is the DOM element root (which is referenced in index.html).
+
+<App> is the root component of this app. The App component is a class that extends React’s Component class for defining a React component. Any application 
+can be built by stripping stuff out and tweaking the App.js. We can even build React components separately inside a src/components/folder and import these 
+components inside App.js.
+
+A typical React application has a root component, <App>, that imports other child components, which in turn import other child components. Data flows from 
+root to children through React properties (called “props) and flows back up using callback functions. This is the design pattern used by any basic React 
+application.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) How does the virtual DOM work in React? Explain in detail.
+
+React implements a virtual DOM that is basically a DOM tree representation in JavaScript. So when it needs to read or write to the DOM, it will use the 
+virtual representation of it. Then the virtual DOM will try to find the most efficient way to update the browser’s DOM. Unlike browser DOM elements, 
+React elements are plain objects and are cheap to create. React DOM takes care of updating the DOM to match the React elements. The reason for this is 
+that JavaScript is very fast and it’s worth keeping a DOM tree in it to speed up its manipulation.
+
+In React every UI piece is a component, and each component has a state. React follows the observable pattern and listens for state changes. When the state 
+of a component changes, React updates the virtual DOM tree. Once the virtual DOM has been updated, React then compares the current version of the virtual DOM 
+with the previous version of the virtual DOM. This process is called “diffing”.
+
+Once React knows which virtual DOM objects have changed, then React updates only those objects, in the real DOM. This makes the performance far better when 
+compared to manipulating the real DOM directly. This makes React standout as a high performance JavaScript library.
+
+In simple words, you tell React what state you want the UI to be in, and it makes sure that the DOM matches that state. The great benefit here is that as a 
+developer, you would not need to know how the attribute manipulation, event handling or the manual DOM updates happen behind the scenes.
+
+All of these details are abstracted away from React developers. All you need to do is update the states of your component as and when needed and React takes 
+care of the rest. This ensures a superior developer experience when using React.
+
+The render() function is where the UI gets updated and rendered. render() is the required lifecycle method in React. It is the point of entry where the tree 
+of React elements are created. When a state or prop within the component is updated, the render() will return a different tree of React elements. If you use 
+setState() within the component, React immediately detects the state change and re-renders the component.
+
+React then figures out how to efficiently update the UI to match the most recent tree changes.
+
+This is when React updates its virtual DOM first and updates only the object that have changed in the real DOM.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework?
+
+The tic-tac-toe assignment it based on the minimax algorithm.  Minimax is a kind of backtracking algorithm that is used in decision making and game theory 
+to find the optimal move for a player, assuming that your opponent also plays optimally. It is widely used in two player turn-based games such as Tic-Tac-Toe, 
+Backgammon, Chess, etc.
+
+In Minimax the two players are called maximizer and minimizer. The maximizer tries to get the highest score possible while the minimizer tries to do the 
+opposite and get the lowest score possible.Every board state has a value associated with it. In a given state if the maximizer has upper hand then, the score 
+of the board will tend to be some positive value. If the minimizer has the upper hand in that board state then it will tend to be some negative value. The 
+values of the board are calculated by some heuristics which are unique for every type of game.
+
+To check whether or not the current move is better than the best move, the minimax() function will consider all the possibilities the game can go and returns
+the best value for that move, assuming that the opponent played optimally.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 8) What’s the difference between a React Element and a React Component?
+
+A react element always gets returned by a component, while the react component can by either functional or class-based that can take an input and return
+an element.  An react element doesn't have any methods, while a component has its life cycle methods.  Also, an element is an object representation of the
+DOM node, while a component encapsulates a DOM tree.  Elements are immutable and cannot be used with react hooks, while the state in components is mutable and 
+react hooks can be used with functional components.  Elements are light and stateless which makes then fast, while components are slower than elements.
+
