@@ -1,0 +1,174 @@
+QUESTION 1) Discuss in words something you learned in class today or this week.
+
+ This week a big takeaway was learning about the hook useState() in functional components to take care of state objects rather than just using class-based
+ components.  The useState() calls a state variable as way of keeping values similar to this.state does in a class-based component.  This allows the for
+ the state variables to be kept even after the function completes.  The useState returns a function that has a pair of values, which are the current state
+ and a function that is used to update it, similar to this.state and this.setState in class-based components.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) What is the difference between state and props?
+
+Props are known as properties it can be used to pass data from one component to another. Props cannot be modified, read-only, and Immutable.  Only the parent
+is allowed to change props of the child component.
+
+Example of props:
+
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello {this.props.name}</h1>;
+  }
+}
+const element = <Welcome name="Sara" />;
+
+The line <Welcome name="Sara" /> creates a property name with value "Sara".  The property is passed to the component, similar to how an argument is passed 
+to a function.
+
+
+State represents parts of an Application that can change. The initial value can be got from the parent component.  Each component can have its State. The 
+state is Mutable and it is local to the component only.  We can pass state as props to child components within the render method of the parent component.
+
+Example of state:
+
+class Button extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
+updateCount() {
+    this.setState((prevState, props) => {
+      return { count: prevState.count + 1 }
+    });
+  }
+render() {
+    return (<button
+              onClick={() => this.updateCount()}
+            >
+              Clicked {this.state.count} times
+            </button>);
+  }
+}
+
+The constructor is where state gets its initial data. The initial data can be hardcoded (as above), but it can also come from props.
+
+We change the state to keep track of the total number of clicks. The important bit is setState. First off, notice that setState takes a function, that’s 
+because setState can run asynchronously. It needs to take a callback function rather than updating the state directly. You can see we have access to 
+prevState within the callback, this will contain the previous state, even if the state has already been updated somewhere else. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) What is ReactDOM? What is the difference between ReactDOM and React?
+
+The react package holds the react source for components, state, props and all the code that is react.
+
+The react-dom package as the name implies is the glue between React and the DOM. Often, you will only use it for one single thing: mounting your application 
+to the index.html file with ReactDOM.render().
+
+Whenever we use component, classes, elements, etc. We’re using React and whenever we use methods like render() or findDOMNode() we’re using React-DOM.
+
+Because React-DOM binds the idea of React to a web browser. And ideally, React has nothing to do with a browser or web for that matter. That’s why we’re 
+seeing tools and frameworks like React-Native being developed. These tools and frameworks don’t use React-DOM, but they do in fact use the idea behind 
+React.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What is React.createClass?
+
+
+the React.createClass method to create component classes, and released a small syntax sugar update to allow for better use with ES6 modules by extends 
+React.Component, which extends the Component class instead of calling createClass.
+
+In React.createClass,  you need to define getDefaultProps() as a function on the passed object, while in ES6 classes is defined as a property on the 
+component itself.  In addition, it is necessary to have a getInitialState function, which simply returns an Object of initial states.  It will also 
+automatically bind 'this' values correctly.  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework?
+
+Conditional rendering is based on a type step in an algorithm. The algorithm is a set of steps that has a beginning and an end, with the conditional playing 
+a role where a decision must be made.  Computers follow logical instructions and they need to know how to handle different decisions so that programs can 
+proceed no matter what the outcome of those selections may be.
+
+IF-THEN-ELSE statements. 
+The syntax and exact usage may be different but they all accomplish the same thing, which is to allow for program execution based on conditionals. The basic 
+flow is: If some condition is true then do this, otherwise do that.
+
+AND/OR CONDITIONALS
+Using AND will cause the program to do something if both conditions are true whereas using an OR statement will do something if one of the conditions is 
+true. Using these together with if-then-else statements will give you more power and control over your programs.
+
+SWITCH AND CASE CONDITIONALS
+The switch statement is used to allow you to perform different actions based on different conditions. In some languages this was a common structure for 
+conditional execution that makes it easier for a program to execute one of several cases depending on the value of the expression at the switch.
+
+The switch is evaluated once and then compared to the value of each case. If there is a match then the block of code is executed. Let’s say that today is 
+Sunday and you want to order a pizza from a restaurant that has daily specials. In this example we’ll use a switch and case approach instead of running 
+through an entire if-then-else chain, The switch is evaluated once, that value is compared to the value of each case, and if there is a match then the 
+code in that block is executed.
+
+Switch and case statements can be quicker than running through an if-then-else chain.
+
+I couldn't find much in relation to a node library that solved this type of conditional algorithm.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+
+The filter() method provides a means to filter data from an array based on certain conditions. It works by taking all values from a provided array that meets 
+set criteria and entering them into a new array.
+
+The filter method is used by calling it on the array you want to use it on. It acts as an iterator, looping through the array one item at a time, stopping 
+when the array ends. 
+
+The filter() method accepts two parameters; the first is a function that will run against the array. Developers use this function to create everything from 
+simple conditional statements to complex equations. This function accepts three parameters; only the first is required.
+
+function(currentValue, index, arr)
+
+The function has access to the array through the method. The currentValue parameter inside the function holds the array item that the filter method is 
+currently accessing.
+
+The index parameter of the function contains the index location of the current item in the iteration, starting at 0 incrementing with each iteration. The 
+index is accessible from within the function, and this gives developers more control over how they access the items in the array and allows for accurate 
+manipulation.
+
+The same is true of the arr parameter; accessing it within the function allows developers to monitor the current state of the array as the filter method 
+progresses through iterations. Finally, the last parameter for the filter method is passed as the this value of the method. The this value of the method 
+contains any data you wish to be contextually relevant to the operation.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) Explain event delegation in JavaScript and why it is useful.
+
+Event Delegation is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an 
+event listener to a parent element and call an event on a particular target using the .target property of the event object.
+
+By having a single parent element with the event listener (buttons for example).  The event listener is then attached to a parent list of buttons.  The 
+listener reacts to button clicks because the bubble click bubbles through thanks to event propagation.  When the button is clicked, the handler function
+is invoked with the event object.  The property event.target is the element upon which the event has been sent out to.
+
+When a click event happens (or any other event that propagates):
+
+The event travels down from window, document, root element and through the ancestors of the target element (capture phase)
+The event occurs on the target (the target phase)
+Finally, the event bubbles up through the target's ancestors until the root element, document and window (the bubble phase).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 8) Which new JavaScript / browser features are you most excited about and why?
+
+Method .at() of indexable values lets us read an element at a given index (like the bracket operator []) and supports negative indices (unlike the bracket operator).
+
+> ['a', 'b', 'c'].at(0)
+'a'
+> ['a', 'b', 'c'].at(-1)
+'c'
+
+This is very useful with accessing elements within arrays rather that using the variable with bracket notation, as a values returned from a function as an array can have 
+the at() method applied directly to them and source an element in the middle of array. It is much easier to use than the applying a splice method or length property to an array to get a value in the middle of an 
+array.
+
