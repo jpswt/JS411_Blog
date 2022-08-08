@@ -1,0 +1,175 @@
+QUESTION 1) Discuss in words something you learned in class today or this week.
+
+This week we learned about Material UI and the benefits of using it.  Material-UI is a UI framework for React that offers a wide variety of ready-made 
+components that can be used in your React project. Developers can use these components with the Material-UI styling library, also available in the 
+React world.
+
+One of the great things about Material-UI is that it offers a wide variety of components that can create almost any type of UI imaginable. For example, 
+you can find essential components like buttons, cards, sliders, and more complex ones like dialogs, grids, and Tooltips.
+
+In addition, it comes with a built-in theming system that makes it easy to create custom themes for your app. You can also use the Material-UI 
+styled-components library to style your own React components without using Material UI at all.
+
+One of the main advantages of Material UI is that it is interoperable with different styling systems. This interoperability means that developers can 
+use the library with varying frameworks of CSS or even with vanilla CSS.
+
+For example, let’s say you are using Material-UI in a Bootstrap CSS framework project. You can use the class Name property to add the Bootstrap classes 
+to the Material-UI components. This will ensure that the styles from Bootstrap are applied to the Material-UI components.
+
+Similarly, you can use the style property to add inline styles to the Material-UI components. This is useful if you want to override the default styles 
+of the components or if you are using a CSS framework that does not include a Material-UI theme.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 2) What is render() in React? Explain its purpose.
+
+The render() method is  one of four methods called when mounting a component.  It is required and will always be called, the others are optional and will 
+be called if you define them.
+
+The purpose of the render() is to display the specified HTML code inside the specified HTML element. It can read props and state and return our JSX code to 
+the root component of our app. In the render() method, we cannot change the state, and we cannot cause side effects( such as making an HTTP request to 
+the web server).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 3) Is setState() async?
+
+Yes, setState() is asynchronous.  React does not guarantee that the state changes are applied immediately.  setState() does not always immediately update 
+the component. setState() can be thought of as a request rather than an immediate command to update the component.
+
+This doesn't mean it will always be asynchronous - it mainly means that you just can't depend on it being synchronous. ReactJS takes into consideration 
+many variables in the scenario that you're changing the state in, to decide when the state should actually be updated and your component rerendered.
+
+A simple example to demonstrate this, is that if you call setState as a reaction to a user action, then the state will probably be updated immediately 
+(although, again, you can't count on it), so the user won't feel any delay, but if you call setState in reaction to an ajax call response or some other 
+event that isn't triggered by the user, then the state might be updated with a slight delay, since the user won't really feel this delay, and it will 
+improve performance by waiting to batch multiple state updates together and rerender the DOM fewer times.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 4) What are controlled components?
+
+Controlled Components are those in which form’s data is handled by the component’s state. It takes its current value through props and makes changes through 
+callbacks like onClick, onChange, etc. A parent component manages its own state and passes the new values as props to the controlled component.
+
+Example: We are creating a simple form that comprises an input field with a label name and a submit button. We are creating an onSubmit function that 
+triggers when we submit the form which shows the name that we have filled in the alert box.
+
+We are creating a state name that stores the value we enter into the input field using the useState hook. We are creating an onChange function in the input 
+field that stores the data we are entering in the input field to our state. There is another function handleSubmit that gets triggered when we submit the 
+form and it shows the name we have entered on the alert box.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 5) Which (if there is) node library method could you use to solve the algorithm problem you solved last night in your pre-homework?
+
+Components are created (mounted on the DOM), grow by updating, and then die (unmount on DOM). This is referred to as a component lifecycle.
+
+There are different lifecycle methods that React provides at different phases of a component’s life. React automatically calls the responsible method 
+according to the phase in which the component is. These methods give us better control over our component and we can manipulate them using these methods.
+
+A component’s lifecycle is broadly classified into four parts:
+
+1) Initialization
+2) Mounting
+3) updating
+4) Unmounting
+
+Initialization:
+This is the phase in which the component is going to start its journey by setting up the state (see below) and the props.
+
+Mounting:
+Mounting is the phase in which our React component mounts on the DOM (i.e., is created and inserted into the DOM). This phase comes onto the scene after 
+the initialization phase is completed. In this phase, our component renders the first time. The methods that are available in this phase are:
+
+1. componentWillMount()
+
+This method is called just before a component mounts on the DOM or the render method is called. After this method, the component gets mounted.
+
+2. componentDidMount()
+
+This method is called after the component gets mounted on the DOM. Like componentWillMount, it is called once in a lifecycle. Before the execution of this 
+method, the render method is called (i.e., we can access the DOM). 
+
+Updating:
+This is the third phase through which our component passes. After the mounting phase where the component has been created, the component’s state changes and 
+hence, re-rendering takes place.  The data of the component (state & props) updates in response to user events like clicking, typing and so on. This results 
+in the re-rendering of the component. 
+
+The methods that are available in this phase are:
+
+1. shouldComponentUpdate()
+This method determines whether the component should be updated or not. By default, it returns true. But at some point, if you want to re-render the component 
+on some condition, then shouldComponentUpdate method is the right place.
+
+Suppose, for example, you want to only re-render your component when there is a change in prop — then utilize the power of this method. It receives arguments 
+like nextProps and nextState which help us decide whether to re-render by doing a comparison with the current prop value.
+
+2. componentWillUpdate()
+
+Like other methods, its name is also self-explanatory. It is called before the re-rendering of the component takes place. It is called once after the 
+‘shouldComponentUpdate’ method. If you want to perform some calculation before re-rendering of the component and after updating the state and prop, then this 
+is the best place to do it. Like the ‘shouldComponentUpdate’ method, it also receives arguments like nextProps and nextState.
+
+3. ComponentDidUpdate()
+
+This method is called just after the re-rendering of the component. After the new (updated) component gets updated on the DOM, the ‘componentDidUpdate’ 
+method is executed. This method receives arguments like prevProps and prevState.
+
+Unmounting
+This is the last phase in the component’s lifecycle. The component gets unmounted from the DOM in this phase. 
+The method that is available in this phase is:
+
+1. componentWillUnmount()
+
+This method is called before the unmounting of the component takes place. Before the removal of the component from the DOM, ‘componentWillUnMount’ executes. 
+This method denotes the end of the component’s lifecycle.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 6) Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+
+Binary search is a fast search algorithm with run-time complexity of Ο(log n). This search algorithm works on the principle of divide and conquer. For this 
+algorithm to work properly, the data collection should be in the sorted form.
+
+A node method could use the sort method of an array to get the keys in sorted fashion prior to executing the algorithm.  
+
+Binary search looks for a particular item by comparing the middle most item of the collection. If a match occurs, then the index of item is returned. If the 
+middle item is greater than the item, then the item is searched in the sub-array to the left of the middle item. Otherwise, the item is searched for in the 
+sub-array to the right of the middle item. This process continues on the sub-array as well until the size of the sub-array reduces to zero.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 7) What is the event loop in JavaScript?
+
+The event loop is the secret behind JavaScript’s asynchronous programming. JS executes all operations on a single thread, but using a few smart data structures, 
+giving us the illusion of multi-threading.
+
+The event loop is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.
+
+The event loop got its name because of how it’s usually implemented, which usually resembles:
+
+while (queue.waitForMessage()) {
+  queue.processNextMessage()
+}
+
+The Event Loop is composed of the following six phases, which are repeated for as long as the application still has code that needs to be executed:
+
+1) Timers: Callbacks scheduled by setTimeout() or setInterval() are executed in this phase.
+2) I/O Callbacks: Executes I/O callbacks deferred to the next loop iteration.
+3) Waiting / Preparation: Internally used only
+4) I/O Polling: This is the phase in which all the JavaScript code that we write is executed, starting at the beginning of the file, and working down.
+5) setImmediate() callbacks: It invokes setIntermediate() callbacks.
+6) Close events: This phase executes the callbacks of all close events.
+
+These six phases create one cycle, or loop, which is known as a tick. A program only runs for as long as there are tasks queued in the Event Loop, or 
+present on the call stack.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUESTION 8) Why does ReactJS use className over class attribute?
+
+ReactJS uses className over class because the class is a reserved keyword in JavaScript. Since we use JSX in React which itself is the extension of 
+JavaScript, we have to use className instead of class attribute. However, there are very less few scenarios where the DOM property for a given HTML attribute 
+uses a different name. For example class as className. But nothing has changed with it, the semantic meaning of both className and class is the same, when 
+JSX is rendered, the className attribute is automatically rendered as a class attribute.
+
