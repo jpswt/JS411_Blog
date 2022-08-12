@@ -139,7 +139,7 @@ You first integrate your application with Auth0. Your application will then redi
 
 ---
 
-### QUESTION 7) Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+### QUESTION 8) Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
 
 JavaScript doesn’t have a native Str#reverse method. Yet, you can use the existing methods to build your own method to reverse a string.
 
