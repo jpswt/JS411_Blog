@@ -10,6 +10,7 @@ By preventing a page refresh, and using Router or Link, the flash of a white scr
 having a more seamless user experience. React router also allows the user to utilize browser functionality like the back button and the refresh page 
 while maintaining the correct view of the application.
 
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 QUESTION 2) How does hoisting work in JavaScript?
