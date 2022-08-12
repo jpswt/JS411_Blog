@@ -158,7 +158,7 @@ Once your users log in successfully, Auth0 redirects them back to your app, retu
 With Auth0, you can secure a web application without having to know the ins and outs of identity protocols like OAuth 2.0 or OpenID Connect.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-QUESTION 7) Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
+QUESTION 8) Which (if there is) node library method could you use to solve the algorithm problem you solved in class tonight?
 
 JavaScript doesn’t have a native Str#reverse method. Yet, you can use the existing methods to build your own method to reverse a string.
 
